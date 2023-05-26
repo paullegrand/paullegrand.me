@@ -1,5 +1,6 @@
 import './globals.css'
 import Header from './components/Header'
+import Footer from './components/Footer'
 import { Nunito } from 'next/font/google'
 
 const nunito = Nunito({ subsets: ['latin'] })
@@ -39,9 +40,10 @@ export default function RootLayout({
             }}
           />
         </div>
-        <div className="relative">
+        <div className="relative min-h-screen">
           <Header />
           {children}
+          <Footer />
         </div>
       </body>
     </html>

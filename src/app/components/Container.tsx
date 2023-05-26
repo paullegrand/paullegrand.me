@@ -3,5 +3,5 @@ interface Props {
 }
 
 export const Container = ({ children }: Props) => (
-  <div className="mx-auto max-w-2xl p-4 sm:p-8 lg:max-w-7xl">{children}</div>
+  <div className="mx-auto max-w-2xl p-4 sm:p-8 md:max-w-7xl">{children}</div>
 )
