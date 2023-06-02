@@ -1,4 +1,5 @@
 import Image from 'next/image'
+import Link from 'next/link'
 import { Container } from '@/app/components/Container'
 
 import AboutProfilePic from '@/images/about-profile-pic.png'
@@ -101,12 +102,13 @@ export default function About() {
               Dad makes wire puzzles out of stainless steel wire, which
               I&apos;ve been solving since before I could walk; one of his
               puzzles is even featured in the{' '}
-              <a
+              <Link
                 className="underline"
+                target="_blank"
                 href="https://www.puzzlemuseum.com/month/picm11/2011-10-tricycles.htm"
               >
                 Puzzle Museum
-              </a>
+              </Link>
               .
             </p>
             <p>
