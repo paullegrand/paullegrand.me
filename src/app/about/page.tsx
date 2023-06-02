@@ -56,7 +56,7 @@ function WorkExperiences() {
             alt={experience.alt}
             className="mr-2 h-12 w-12"
           />
-          <div className="flex w-full flex-col">
+          <div className="flex w-full flex-col gap-1">
             <h3>{experience.employer}</h3>
             {experience.positions.map((position, i, arr) => (
               <>
@@ -67,7 +67,9 @@ function WorkExperiences() {
                   <p className="mr-1">{position.title}</p>
                   <p className="text-right">{position.dates}</p>
                 </div>
-                {arr.length - 1 !== i && <hr className="border-neutral-600" />}
+                {arr.length - 1 !== i && (
+                  <hr className="mx-1 border-neutral-600" />
+                )}
               </>
             ))}
           </div>
