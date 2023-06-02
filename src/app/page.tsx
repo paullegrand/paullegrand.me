@@ -9,11 +9,13 @@ import Image2 from '@/images/home/image2.png'
 import Image3 from '@/images/home/image3.png'
 import Image4 from '@/images/home/image4.png'
 import Image5 from '@/images/home/image5.png'
-import Link from 'next/link'
 
-function Avatar() {
+function Avatar(props: { isMobile: boolean }) {
+  const sizeClasses = props.isMobile ? 'h-20 w-20' : 'h-96 w-96'
   return (
-    <div className="relative mt-1 flex h-96 w-96 flex-1 items-center justify-center rounded-full shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5">
+    <div
+      className={`relative mt-1 flex items-center justify-center rounded-full shadow-md shadow-zinc-800/5 ring-1 ring-zinc-900/5 ${sizeClasses}`}
+    >
       <Image src={avatar} alt="Avatar image for Paul Le Grand" />
     </div>
   )
@@ -24,12 +26,16 @@ export default function Home() {
     <main>
       <Container>
         <div className="mb-8 flex w-full flex-row justify-between">
-          <div className="flex flex-1 flex-col">
+          <div className="xs:w-full flex flex-col md:w-2/3 md:pr-6">
+            {/* Mobile avatar */}
+            <div className="mb-8 self-end md:hidden">
+              <Avatar isMobile />
+            </div>
             <h1 className="mb-8">
               Software engineer, problem solver, and outdoors enthusiast.
             </h1>
             <p className="mb-8">
-              I&#39;m Paul, a software Engineer with over 6 years of experience
+              I&apos;m Paul, a software Engineer with over 6 years of experience
               based in Denver. I love to solve complex problems and build
               elegant solutions.
             </p>
@@ -50,29 +56,43 @@ export default function Home() {
               </a>
             </div>
           </div>
-          <Avatar />
+          <div className="hidden md:block">
+            <Avatar isMobile={false} />
+          </div>
         </div>
 
         {/* Images */}
-        <div className="flex w-full">
-          <div className="w-[840px] flex-col">
+        <div className="mb-8 flex">
+          <div className="h-full w-2/3">
             <Image
               src={Image1}
               priority
               alt="Backpacking on the Appalachian Trail"
             />
-            <div className="flex h-[448px] flex-row">
-              <Image src={Image3} className="w-[244px]" alt="" />
-              <Image src={Image4} className="w-[596px]" alt="" />
+            <div className="flex w-full flex-row">
+              <Image
+                src={Image3}
+                className="w-1/3 grow"
+                alt="Standing in a garden outside of Maastricht, Netherlands"
+              />
+              <Image
+                src={Image4}
+                className="w-2/3 object-cover"
+                alt="My cat, Greg, sleeping in his bed"
+              />
             </div>
           </div>
-          <div className="flex h-full w-[420px] flex-col">
-            <div className="h-[560px">
-              <Image src={Image2} alt="Backpacking on the Appalachian Trail" />
-            </div>
-            <div className="h-[560px]">
-              <Image src={Image5} alt="" />
-            </div>
+          <div className="flex w-1/3 flex-col justify-between">
+            <Image
+              src={Image2}
+              className="grow"
+              alt="Sitting on a wall on the side of the road with my partner Bailey, overlooking Granada, Spain"
+            />
+            <Image
+              src={Image5}
+              className="grow"
+              alt="Standing on the side of Rialto Bridge in Italy"
+            />
           </div>
         </div>
       </Container>

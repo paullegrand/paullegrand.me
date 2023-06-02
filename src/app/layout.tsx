@@ -19,8 +19,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={`flex h-full flex-col bg-plg-blue ${nunito.className}`}>
-        <div className="fixed right-[-30%] top-0 flex justify-center sm:px-8">
+      <body
+        className={`flex h-full w-full flex-col bg-plg-blue ${nunito.className}`}
+      >
+        <div className="fixed right-[-300px] top-0 flex justify-center sm:px-8">
           <div
             className="h-[600px] w-[600px] rounded-full filter"
             style={{
