@@ -89,7 +89,7 @@ export default function About() {
             {/* Mobile avatar image */}
             <Image
               src={AboutProfilePic}
-              className="h-24 w-24 self-end md:hidden"
+              className="h-20 w-20 self-end md:hidden"
               alt="Another picture of Paul Le Grand, near an alpine lake in the mountains of Colorado"
             />
             <h1>
