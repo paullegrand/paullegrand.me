@@ -30,14 +30,11 @@ export default function Header() {
   return (
     <>
       <Container>
-        <header className="relative mx-auto flex flex-row justify-between text-neutral-300">
-          <Link
-            href="/"
-            className="nunito hover-text-neutral-100 text-lg font-bold"
-          >
+        <header className="mx-auto flex flex-row items-end justify-between text-neutral-300">
+          <Link href="/" className="hover-text-neutral-100 text-lg font-bold">
             Paul Le Grand
           </Link>
-          <div className="flex gap-8 text-right">
+          <div className="flex gap-8">
             {navLinks.map((link) => {
               let isActive = pathname.startsWith(link.href)
 
