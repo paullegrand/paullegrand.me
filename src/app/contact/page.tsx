@@ -1,10 +1,20 @@
 import { Container } from '@/app/components/Container'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faEnvelope, faPhone } from '@fortawesome/free-solid-svg-icons'
+import {
+  IconDefinition,
+  faEnvelope,
+  faPhone,
+} from '@fortawesome/free-solid-svg-icons'
 import { faGithub, faLinkedin } from '@fortawesome/free-brands-svg-icons'
 
+interface Contact {
+  icon: IconDefinition
+  href: string
+  text: string
+}
+
 function Contacts() {
-  const contacts = [
+  const contacts: Contact[] = [
     {
       icon: faEnvelope,
       href: 'mailto:paul@paullegrand.me',

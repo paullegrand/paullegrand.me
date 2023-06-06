@@ -1,4 +1,4 @@
-import Image from 'next/image'
+import Image, { StaticImageData } from 'next/image'
 import Link from 'next/link'
 import { Container } from '@/app/components/Container'
 
@@ -7,8 +7,18 @@ import PLLogo from '@/images/about/pl-logo.png'
 import SmLogo from '@/images/about/sm-logo.png'
 import BoxCastLogo from '@/images/about/boxcast-logo.png'
 
+interface WorkExperience {
+  Logo: StaticImageData
+  alt: string
+  employer: string
+  positions: {
+    title: string
+    dates: string
+  }[]
+}
+
 function WorkExperiences() {
-  const workExperiences = [
+  const workExperiences: WorkExperience[] = [
     {
       Logo: PLLogo,
       alt: 'Logo for Paul Le Grand',
