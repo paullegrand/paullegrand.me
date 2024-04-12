@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { Container } from '@/app/components/Container'
 
 import AboutProfilePic from '@/images/about-profile-pic.png'
+import ZeroLogo from '@/images/about/zero-logo.png'
 import PLLogo from '@/images/about/pl-logo.png'
 import SmLogo from '@/images/about/sm-logo.png'
 import BoxCastLogo from '@/images/about/boxcast-logo.png'
@@ -20,13 +21,24 @@ interface WorkExperience {
 function WorkExperiences() {
   const workExperiences: WorkExperience[] = [
     {
+      Logo: ZeroLogo,
+      alt: 'Logo for Zero Homes',
+      employer: 'Zero Homes',
+      positions: [
+        {
+          title: 'Senior Software Engineer',
+          dates: '2023 - Present',
+        },
+      ],
+    },
+    {
       Logo: PLLogo,
       alt: 'Logo for Paul Le Grand',
       employer: 'Self-Employed',
       positions: [
         {
           title: 'Software Engineer Contractor',
-          dates: '2022 - Present',
+          dates: '2022 - 2023',
         },
       ],
     },
@@ -65,24 +77,23 @@ function WorkExperiences() {
           <Image
             src={experience.Logo}
             alt={experience.alt}
-            className="mr-2 h-12 w-12"
+            className="mr-2 h-12 w-12 rounded-full bg-black"
           />
           <div className="flex w-full flex-col gap-1">
             <h3>{experience.employer}</h3>
-            {experience.positions.map((position, i, arr) => (
-              <>
-                <div
-                  className="flex justify-between text-sm"
-                  key={experience.employer + position.dates}
-                >
-                  <p className="mr-1">{position.title}</p>
-                  <p className="text-right">{position.dates}</p>
+            <div className="flex flex-col divide-y divide-gray-400">
+              {experience.positions.map((position, i, arr) => (
+                <div key={`${experience.employer}-position-${i}`}>
+                  <div
+                    className="flex justify-between text-sm"
+                    key={experience.employer + position.dates}
+                  >
+                    <p className="mr-1">{position.title}</p>
+                    <p className="text-right">{position.dates}</p>
+                  </div>
                 </div>
-                {arr.length - 1 !== i && (
-                  <hr className="mx-1 border-neutral-600" />
-                )}
-              </>
-            ))}
+              ))}
+            </div>
           </div>
         </div>
       ))}
